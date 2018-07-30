@@ -1,0 +1,12 @@
+#!/usr/bin/env php
+<?php
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+$builder = new \DI\ContainerBuilder();
+$builder->addDefinitions(__DIR__ . '/../config/container.php');
+$container = $builder->build();
+
+$textChecker = $container->get(\App\Service\TextChecker::class);
+
+var_dump($textChecker);
